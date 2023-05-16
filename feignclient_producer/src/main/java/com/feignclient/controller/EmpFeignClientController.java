@@ -1,0 +1,17 @@
+package com.feignclient.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EmpFeignClientController {
+
+	@Value("${server.port}")
+	private String portValue;
+	
+	@GetMapping("/printportDetail")
+	public String printPortDetail() {
+		return "The value is coming from:"+portValue;
+	}
+}
